@@ -16,13 +16,13 @@ export const Home = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/Course/courses?pageNumber=${pageNumber}&pageSize=${pageSize}');
+                const response = await axios.get('http://localhost:5191/Models/Course/courses?pageNumber=${pageNumber}&pageSize=${pageSize}');
                 console.log('API válasz:', response.data);
                 setCourses(response.data);
             } catch (error) {
                 console.error('Error fetching courses:', error);
             }
-        };        
+        };
 
         fetchCourses();
     }, [pageNumber, pageSize]);
