@@ -1,3 +1,8 @@
+using Moodle.Server.Models;
+using Moodle.Server.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace Moodle.Server.Services
 {
     public interface ICourseService
     {
