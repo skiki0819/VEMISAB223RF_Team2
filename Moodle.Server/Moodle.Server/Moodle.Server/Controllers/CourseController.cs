@@ -6,7 +6,7 @@ using Moodle.Server.Services;
 
 namespace Moodle.Server.Controllers
 {
-    [Route("Models/[controller]")]
+    [Route("../Models/[controller]")]
     [ApiController]
     [Authorize]
     public class CourseController : ControllerBase

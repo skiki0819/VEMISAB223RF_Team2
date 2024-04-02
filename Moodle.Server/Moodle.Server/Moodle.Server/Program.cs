@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Moodle.Server.Data;
+using Moodle.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<ICourseService, CourseService>();
 
 var app = builder.Build();
 
