@@ -3,10 +3,12 @@ using Moodle.Server.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Moodle.Server.Services;
+using Microsoft.AspNetCore.Cors;
 
 namespace Moodle.Server.Controllers
 {
     [Route("../Models/[controller]")]
+    [EnableCors("AllowSpecificOrigin")]
     [ApiController]
     [Authorize]
     public class CourseController : ControllerBase

@@ -10,13 +10,13 @@ interface Course {
 
 export const Home = () => {
     const [courses, setCourses] = useState<Course[]>([]);
-    const [pageNumber, setPageNumber] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageNumber] = useState(1);
+    const [pageSize] = useState(10);
 
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await axios.get('http://localhost:5191/Models/Course/courses?pageNumber=${pageNumber}&pageSize=${pageSize}');
+                const response = await axios.get(`https://localhost:5191/api/Course/courses?pageNumber=${pageNumber}&pageSize=${pageSize}`)
                 console.log('API válasz:', response.data);
                 setCourses(response.data);
             } catch (error) {

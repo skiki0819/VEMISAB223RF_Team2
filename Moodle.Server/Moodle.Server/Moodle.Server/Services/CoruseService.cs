@@ -1,6 +1,8 @@
 ﻿using Moodle.Server.Models;
 using Moodle.Server.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Moodle.Server.Services
 {
@@ -20,10 +22,23 @@ namespace Moodle.Server.Services
 
         public async Task<PagedResult<Course>> GetCourses(int pageNumber, int pageSize)
         {
-            var courses = await _context.Courses.Include(x => x.Code).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            var result = courses.Create(await _context.Courses.CountAsync(), pageNumber, pageSize);
+            var courses = await _context.Courses
+                .OrderBy(c => c.Id)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            var totalItems = await _context.Courses.CountAsync();
+            var result = new PagedResult<Course>
+            {
+                CurrentPage = pageNumber,
+                PageSize = pageSize,
+                TotalItems = totalItems,
+                TotalPages = (int)Math.Ceiling((double)totalItems / pageSize),
+                Items = courses
+            };
+
             return result;
         }
-
     }
 }

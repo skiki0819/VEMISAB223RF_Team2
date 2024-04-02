@@ -7,6 +7,8 @@
     "\\Moodle.Server",
     "\\Moodle.Server\\Moodle.Server",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services"
   ],
   "SelectedNode": "\\Moodle.Client\\src\\pages\\Home.tsx",
