@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Moodle.Client",
+    "\\Moodle.Client\\src",
+    "\\Moodle.Client\\src\\pages",
+    "\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services"
   ],
-  "SelectedNode": "\\Moodle.Server.sln",
+  "SelectedNode": "\\Moodle.Client\\src\\pages\\Home.tsx",
   "PreviewInSolutionExplorer": false
 }
