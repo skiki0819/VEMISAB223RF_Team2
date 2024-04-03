@@ -11,6 +11,6 @@
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services"
   ],
-  "SelectedNode": "\\Moodle.Client\\src\\pages\\Home.tsx",
+  "SelectedNode": "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

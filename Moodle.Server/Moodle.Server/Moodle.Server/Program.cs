@@ -14,6 +14,14 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 
 var app = builder.Build();
 
+// Add CORS policy
+app.UseCors(policy =>
+{
+    policy.AllowAnyHeader();
+    policy.AllowAnyMethod();
+    policy.AllowAnyOrigin();
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
