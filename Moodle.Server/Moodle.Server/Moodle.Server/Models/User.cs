@@ -7,29 +7,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Moodle.Server.Models
 {
-     public class User
- {
-     [Key]
-     public int Id { get; set; }
-
-     [Required]
-     [MaxLength(255)]
-     public string Username { get; set; }
-
-     [Required]
-     [MaxLength(255)]
-     public string Name { get; set; }
-
-     [Required]
-     [MaxLength(255)]
-     public string Password { get; set; }
-
-     public int DegreeId { get; set; }
-
-     [ForeignKey("DegreeId")]
-     public Degree Degree { get; set; }
-
-     public ICollection<MyCourse> MyCourses { get; set; }
- }
+    public class User
+    {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public int DegreeId { get; set; }
+        [ForeignKey("DegreeId")]
+        public Degree Degree { get; set; }
+        public List<Course> Courses { get; set; }
+    }
 
 }

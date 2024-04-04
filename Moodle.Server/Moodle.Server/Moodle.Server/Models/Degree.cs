@@ -8,18 +8,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Moodle.Server.Models
 {
     public class Degree
-{
-    [Key]
-    public int Id { get; set; }
-
-    [Required]
-    [MaxLength(255)]
-    public string Name { get; set; }
-
-    public ICollection<User> Users { get; set; }
-
-    public ICollection<Course> Courses { get; set; }
-
-    public ICollection<ApprovedDegree> ApprovedDegrees { get; set; }
-}
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<User> Users { get; set; }
+        public List<Course> Courses { get; set; }
+    }
 }

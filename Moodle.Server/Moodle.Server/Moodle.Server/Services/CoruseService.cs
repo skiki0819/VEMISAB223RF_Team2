@@ -13,9 +13,9 @@ namespace Moodle.Server.Services
 
     public class CourseService : ICourseService
     {
-        private readonly CoursesDbContext _context;
+        private readonly DataContext _context;
 
-        public CourseService(CoursesDbContext context)
+        public CourseService(DataContext context)
         {
             _context = context;
         }
