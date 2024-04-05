@@ -22,7 +22,7 @@ namespace Moodle.Server.Controllers
         {
             var result = _courseService.GetAllCourse();
             if (result is null)
-                return NotFound("Course not found.");
+                return NotFound("No course found.");
 
             return Ok(result);
         }
@@ -49,9 +49,9 @@ namespace Moodle.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCourse(int id, Course updateCourse)
+        public async Task<IActionResult> UpdateCourse(int id, string code, string name, int credit)
         {
-            var result = _courseService.UpdateCourse(id, updateCourse);
+            var result = _courseService.UpdateCourse(id, code, name, credit);
             if (result is null)
                 return NotFound("Course not found.");
 

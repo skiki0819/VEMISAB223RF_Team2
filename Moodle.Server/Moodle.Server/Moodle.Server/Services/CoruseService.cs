@@ -7,14 +7,13 @@ namespace Moodle.Server.Services
         List<Course> GetAllCourse();
         Course GetSingleCourse(int id);
         List<Course> AddCourse([FromBody] Course course);
-        List<Course>? UpdateCourse(int id, Course updateCourse);
+        List<Course>? UpdateCourse(int id, string code, string name, int credit);
         List<Course>? DeleteCourse(int id);
 
     }
 
     public class CourseService : ICourseService
     {
-        private readonly DataContext _context;
         private static List<Course> courses = new List<Course>
             {
                 new Course
@@ -32,10 +31,6 @@ namespace Moodle.Server.Services
                     Credit = 3,
                 }
             };
-        public CourseService(DataContext context)
-        {
-            _context = context;
-        }
 
         public List<Course> GetAllCourse()
         {
@@ -50,19 +45,25 @@ namespace Moodle.Server.Services
 
         public List<Course> AddCourse([FromBody] Course course)
         {
+            if (course == null)
+                throw new ArgumentNullException(nameof(course));
+
+            course.Events = new List<Event>();
+            course.Degrees = new List<Degree>();
+            course.Users = new List<User>();
             courses.Add(course);
             return courses;
         }
 
-        public List<Course>? UpdateCourse(int id, Course updateCourse)
+        public List<Course>? UpdateCourse(int id, string code, string name, int credit)
         {
             var course = courses.Find(x => x.Id == id);
             if (course is null)
                 return null;
 
-            course.Code = updateCourse.Code;
-            course.Credit = updateCourse.Credit;
-            course.Name = updateCourse.Name;
+            course.Code = code;
+            course.Name = name;
+            course.Credit = credit;
 
             return courses;
         }
