@@ -2,6 +2,9 @@ global using Moodle.Server.Models;
 global using Moodle.Server.Data;
 global using Moodle.Server.Services;
 global using Microsoft.EntityFrameworkCore;
+global using Moodle.Server.Services.CourseService;
+global using Moodle.Server.Services.DegreeService;
+global using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IDegreeService, DegreeService>();
 
 var app = builder.Build();
 
