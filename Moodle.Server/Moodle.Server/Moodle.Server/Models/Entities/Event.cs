@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Moodle.Server.Models
+namespace Moodle.Server.Models.Entities
 {
     public class Event
     {

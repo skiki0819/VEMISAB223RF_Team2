@@ -1,4 +1,6 @@
 
+using Moodle.Server.Models.Entities;
+
 namespace Moodle.Server.Data
 {
     public class DataContext : DbContext

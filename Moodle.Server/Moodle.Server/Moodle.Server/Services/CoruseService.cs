@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Moodle.Server.Models.Entities;
 
 namespace Moodle.Server.Services
 {

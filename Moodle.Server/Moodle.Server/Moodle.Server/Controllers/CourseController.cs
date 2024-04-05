@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using Moodle.Server.Models.Entities;
 
 namespace Moodle.Server.Controllers
 {
