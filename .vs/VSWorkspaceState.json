@@ -8,9 +8,9 @@
     "\\Moodle.Server\\Moodle.Server",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers",
-    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models",
-    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services"
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Data",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models"
   ],
-  "SelectedNode": "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs",
+  "SelectedNode": "\\Moodle.Client\\src\\pages\\Login.tsx",
   "PreviewInSolutionExplorer": false
 }

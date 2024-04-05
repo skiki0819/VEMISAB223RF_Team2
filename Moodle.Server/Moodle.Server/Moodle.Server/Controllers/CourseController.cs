@@ -1,10 +1,5 @@
-﻿using AutoMapper;
-using Moodle.Server.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Moodle.Server.Services;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
-using System.Xml.Linq;
 
 namespace Moodle.Server.Controllers
 {
@@ -14,58 +9,63 @@ namespace Moodle.Server.Controllers
 
     public class CourseController : ControllerBase
     {
-        private static List<Course> courses = new List<Course>
-            {
-                new Course
-                {
-                    Id = 1,
-                    Code = "VEMILEKVAR",
-                    Name = "Lekvár",
-                    Credit = 8,
-                },
-                new Course
-                {
-                    Id = 2,
-                    Code = "VEMIGEM",
-                    Name = "GEM",
-                    Credit = 3,
-                }
-            };
+        private readonly ICourseService _courseService;
 
+        public CourseController(ICourseService  courseService)
+        {
+            _courseService = courseService;
+        }
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCourse() => Ok(courses);
+        public async Task<IActionResult> GetAllCourse() 
+        {
+            var result = _courseService.GetAllCourse();
+            if (result is null)
+                return NotFound("Course not found.");
+
+            return Ok(result);
+        }
 
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingleCourse(int id)
         {
-            var course = courses.Find(x => x.Id == id);
-            return Ok(course);
+            var result = _courseService.GetSingleCourse(id);
+            if (result is null)
+                return NotFound("Course not found.");
+
+            return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> AddCourse([FromBody] Course course)
         {
-            courses.Add(course);
-            return Ok(courses);
+            var result = _courseService.AddCourse(course);
+            if (result is null)
+                return NotFound("Course not found.");
+
+            return Ok(result);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCourse(int id, Course updateCourse)
         {
-            var course = courses.Find(x => x.Id == id);
-            if (updateCourse is null)
-                return NotFound("The course doesn't exist.");
+            var result = _courseService.UpdateCourse(id, updateCourse);
+            if (result is null)
+                return NotFound("Course not found.");
 
-            course.Id = updateCourse.Id;
-            course.Code = updateCourse.Code;
-            course.Credit = updateCourse.Credit;
-            course.Name = updateCourse.Name;
+            return Ok(result);
+        }
 
-            return Ok(course);
-        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCourse(int id)
+        {
+            var result = _courseService.DeleteCourse(id);
+            if (result is null)
+                return NotFound("Course not found.");
+
+            return Ok(result);
         }
     }
 
@@ -73,9 +73,4 @@ namespace Moodle.Server.Controllers
 
 
 }
-
-
-
-
-
 
