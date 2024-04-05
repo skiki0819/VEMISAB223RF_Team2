@@ -4,39 +4,78 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Moodle.Server.Services;
 using Microsoft.AspNetCore.Cors;
+using System.Xml.Linq;
 
 namespace Moodle.Server.Controllers
 {
-    [Route("../Models/[controller]")]
+    [Route("api/[controller]")]
     [EnableCors("AllowSpecificOrigin")]
     [ApiController]
-    [Authorize]
+
     public class CourseController : ControllerBase
     {
-        private readonly ICourseService _courseService;
-        private readonly IMapper _mapper;
+        private static List<Course> courses = new List<Course>
+            {
+                new Course
+                {
+                    Id = 1,
+                    Code = "VEMILEKVAR",
+                    Name = "Lekvár",
+                    Credit = 8,
+                },
+                new Course
+                {
+                    Id = 2,
+                    Code = "VEMIGEM",
+                    Name = "GEM",
+                    Credit = 3,
+                }
+            };
 
-        public CourseController(ICourseService courseService, IMapper mapper)
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllCourse() => Ok(courses);
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSingleCourse(int id)
         {
-            _courseService = courseService;
-            _mapper = mapper;
+            var course = courses.Find(x => x.Id == id);
+            return Ok(course);
         }
 
-        [HttpGet("courses")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PagedResult<Course>))]
-        public async Task<IActionResult> GetCourses(int pageNumber, int pageSize)
+        [HttpPost]
+        public async Task<IActionResult> AddCourse([FromBody] Course course)
         {
-            PagedResult.CheckParameters(ref pageNumber, ref pageSize);
-            var courses = await _courseService.GetCourses(pageNumber, pageSize);
-            var coursesDtos = new PagedResult<Course>
-            {
-                CurrentPage = courses.CurrentPage,
-                PageSize = courses.PageSize,
-                TotalItems = courses.TotalItems,
-                TotalPages = courses.TotalPages,
-                Items = _mapper.Map<List<Course>>(courses.Items)
-            };
-            return Ok(coursesDtos);
+            courses.Add(course);
+            return Ok(courses);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCourse(int id, Course updateCourse)
+        {
+            var course = courses.Find(x => x.Id == id);
+            if (updateCourse is null)
+                return NotFound("The course doesn't exist.");
+
+            course.Id = updateCourse.Id;
+            course.Code = updateCourse.Code;
+            course.Credit = updateCourse.Credit;
+            course.Name = updateCourse.Name;
+
+            return Ok(course);
+        
         }
     }
+
+
+
+
 }
+
+
+
+
+
+
