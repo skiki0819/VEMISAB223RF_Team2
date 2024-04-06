@@ -10,6 +10,7 @@ namespace Moodle.Server.Services.CourseService
         List<Course>? UpdateCourse(int id, string code, string name, int credit);
         List<Course>? DeleteCourse(int id);
         Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByUser(int id);
+        Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByDegree(int id);
 
     }
 }

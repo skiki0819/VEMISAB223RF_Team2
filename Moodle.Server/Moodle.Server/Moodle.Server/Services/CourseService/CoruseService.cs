@@ -92,5 +92,21 @@ namespace Moodle.Server.Services.CourseService
             }
             return response;
         }
+
+        public async Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByDegree(int id)
+        {
+            var response = new ServiceResponse<List<GetCourseDto>>();
+            var dbCourses = await _context.Degrees
+                .Where(d => d.Id == id)
+                .SelectMany(d => d.Courses)
+                .ToListAsync();
+            response.Data = dbCourses.Select(c => _mapper.Map<GetCourseDto>(c)).ToList();
+            if (response.Data.Count == 0)
+            {
+                response.Message = ResponseMessages.NoCourseFoundForDegree;
+                response.Success = false;
+            }
+            return response;
+        }
     }
 }
