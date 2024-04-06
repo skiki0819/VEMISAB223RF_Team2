@@ -69,17 +69,6 @@ namespace Moodle.Server.Controllers
         }
 
         [HttpGet]
-        [Route("GetCoursesByUser/{id}")]
-        public async Task<ActionResult<List<GetCourseDto>>> GetCoursesByUser(int id)
-        {
-            var result = await _courseService.GetCoursesByUser(id);
-            if (result is null)
-                return NotFound();
-
-            return Ok(result);
-        }
-
-        [HttpGet]
         [Route("GetCoursesByDegree/{id}")]
         public async Task<ActionResult<List<GetCourseDto>>> GetCoursesByDegree(int id)
         {

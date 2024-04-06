@@ -76,23 +76,6 @@ namespace Moodle.Server.Services.CourseService
             courses.Remove(course);
             return courses;
         }
-
-        public async Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByUser(int id)
-        {
-            var response = new ServiceResponse<List<GetCourseDto>>();
-            var dbCourses = await _context.Users
-                .Where(u => u.Id == id)
-                .SelectMany(u => u.Courses)
-                .ToListAsync();
-            response.Data = dbCourses.Select(c => _mapper.Map<GetCourseDto>(c)).ToList();
-            if (response.Data.Count == 0)
-            {
-                response.Message = ResponseMessages.NoCourseFoundForUser;
-                response.Success = false;
-            }
-            return response;
-        }
-
         public async Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByDegree(int id)
         {
             var response = new ServiceResponse<List<GetCourseDto>>();
