@@ -1,10 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moodle.Server.Models.Entities;
 
 namespace Moodle.Server.Services.CourseService
 {
     public class CourseService : ICourseService
     {
+        private readonly DataContext _context;
+        private readonly IMapper _mapper;
+
+        public CourseService(DataContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
+
         private static List<Course> courses = new List<Course>
             {
                 new Course
@@ -67,6 +75,22 @@ namespace Moodle.Server.Services.CourseService
 
             courses.Remove(course);
             return courses;
+        }
+
+        public async Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByUser(int id)
+        {
+            var response = new ServiceResponse<List<GetCourseDto>>();
+            var dbCourses = await _context.Users
+                .Where(u => u.Id == id)
+                .SelectMany(u => u.Courses)
+                .ToListAsync();
+            response.Data = dbCourses.Select(c => _mapper.Map<GetCourseDto>(c)).ToList();
+            if (response.Data.Count == 0)
+            {
+                response.Message = ResponseMessages.NoCourseFoundForUser;
+                response.Success = false;
+            }
+            return response;
         }
     }
 }

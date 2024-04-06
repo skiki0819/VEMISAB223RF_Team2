@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moodle.Server.Models.Entities;
 
 namespace Moodle.Server.Services.CourseService
 {
@@ -10,6 +9,7 @@ namespace Moodle.Server.Services.CourseService
         List<Course> AddCourse([FromBody] Course course);
         List<Course>? UpdateCourse(int id, string code, string name, int credit);
         List<Course>? DeleteCourse(int id);
+        Task<ServiceResponse<List<GetCourseDto>>> GetCoursesByUser(int id);
 
     }
 }

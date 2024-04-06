@@ -1,7 +1,4 @@
-﻿using Moodle.Server.Models.Entities;
-using Moodle.Server.Models.Dtos;
-
-namespace Moodle.Server.Services.DegreeService
+﻿namespace Moodle.Server.Services.DegreeService
 {
     public interface IDegreeService
     {

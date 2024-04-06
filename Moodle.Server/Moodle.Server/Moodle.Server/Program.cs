@@ -5,6 +5,9 @@ global using Microsoft.EntityFrameworkCore;
 global using Moodle.Server.Services.CourseService;
 global using Moodle.Server.Services.DegreeService;
 global using AutoMapper;
+global using Moodle.Server.Models.Entities;
+global using Moodle.Server.Models.Dtos;
+global using Moodle.Server.Constants;
 
 var builder = WebApplication.CreateBuilder(args);
 

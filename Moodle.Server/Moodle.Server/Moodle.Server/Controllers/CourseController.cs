@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
-using Moodle.Server.Models.Entities;
-using Moodle.Server.Services.CourseService;
 
 namespace Moodle.Server.Controllers
 {
@@ -69,6 +67,19 @@ namespace Moodle.Server.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetCoursesByUser/{id}")]
+        public async Task<ActionResult<List<GetCourseDto>>> GetCoursesByUser(int id)
+        {
+            var result = await _courseService.GetCoursesByUser(id);
+            if (result is null)
+                return NotFound();
+
+            return Ok(result);
+        }
+
+
     }
 
 

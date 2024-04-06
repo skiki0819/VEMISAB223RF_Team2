@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moodle.Server.Models.Dtos;
-using Moodle.Server.Services.DegreeService;
-
 namespace Moodle.Server.Controllers
 {
     [ApiController]
