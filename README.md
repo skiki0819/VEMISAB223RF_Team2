@@ -54,7 +54,7 @@ Swashbuckle.AspNetCore
 
 
 5. Szerver Telepítése és Indítása
-6. 
+
 Navigáljon a Szerver mappába a projekt gyökérkönyvtárában:
 
 bash
@@ -67,7 +67,7 @@ dotnet run
 
 
 8. Kliens Telepítése és Indítása
-9. 
+
 Navigáljon a Kliens mappába a projekt gyökérkönyvtárában:
 
 bash
@@ -79,6 +79,7 @@ bash
 npm install
 
 npm start dev
+
 
 
 Mostantól a Moodle weboldal elérhető a böngészőben a http://localhost:5191 címen.
