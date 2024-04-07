@@ -18,7 +18,7 @@ namespace Moodle.Server.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCourse() 
+        public async Task<ActionResult<List<GetCourseDto>>> GetAllCourse() 
         {
             var result = _courseService.GetAllCourse();
             if (result is null)
@@ -29,7 +29,7 @@ namespace Moodle.Server.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetSingleCourse(int id)
+        public async Task<ActionResult<List<GetCourseDto>>> GetSingleCourse(int id)
         {
             var result = _courseService.GetSingleCourse(id);
             if (result is null)
@@ -39,29 +39,9 @@ namespace Moodle.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCourse([FromBody] Course course)
+        public async Task<ActionResult<List<GetCourseDto>>> AddCourse([FromBody] AddCourseDto course)
         {
             var result = _courseService.AddCourse(course);
-            if (result is null)
-                return NotFound("Course not found.");
-
-            return Ok(result);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCourse(int id, string code, string name, int credit)
-        {
-            var result = _courseService.UpdateCourse(id, code, name, credit);
-            if (result is null)
-                return NotFound("Course not found.");
-
-            return Ok(result);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCourse(int id)
-        {
-            var result = _courseService.DeleteCourse(id);
             if (result is null)
                 return NotFound("Course not found.");
 

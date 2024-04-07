@@ -12,4 +12,11 @@
         public int Credit { get; set; }
 
     }
+
+    public class AddCourseDto
+    {
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public int Credit { get; set; }
+    }
 }
