@@ -2,6 +2,7 @@ Projekt Leírása
 
 A projekt egy egyetemi rendszerfejlesztési kurzus keretében készült. Célja a Moodle weboldal megvalósítása.
 
+
 Használt Technológiák:
 
 C# 
@@ -15,6 +16,7 @@ JavaScript
 CSS
 
 
+
 Használati Útmutató - Frissen Telepített Windows Operációs Rendszerhez
 
 Előfeltételek:
@@ -26,6 +28,7 @@ Telepítse a Node.js legfrissebb LTS verzióját. https://nodejs.org/en
 Telepítse a Git legfrissebb verzióját. https://git-scm.com/download/win
 
 Telepítse a Visual Studio legfrissebb verzióját. https://visualstudio.microsoft.com/downloads/
+
 
 
 Telepítési és Indítási Útmutató
@@ -59,8 +62,11 @@ npm start dev
 Mostantól a Moodle weboldal elérhető a böngészőben a http://localhost:5191 címen.
 
 Szerkesztők:
+
 Albert Szebasztián
+
 Góczán Dávid
+
 Sándor Krisztián
 
 
