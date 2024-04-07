@@ -33,31 +33,53 @@ Telepítse a Visual Studio legfrissebb verzióját. https://visualstudio.microso
 
 Telepítési és Indítási Útmutató
 1. Projekt Klónozása
+
 Nyissa meg a parancssort és klónozza le a projektet a GitHubról a következő paranccsal:
+
 bash
+
 git clone https://github.com/skiki0819/VEMISAB223RF_Team2.git
 
-2. Telepítse a szükséges NuGet csomagokat Visual Studioban:
+3. Telepítse a szükséges NuGet csomagokat Visual Studioban:
+
 Microsoft.AspNetCore.Cors
+
 Microsoft.EntityFrameworkCore
+
 Microsoft.EntityFrameworkCore.Design
+
 Microsoft.EntityFrameworkCore.Sqlite
+
 Swashbuckle.AspNetCore
 
-3. Szerver Telepítése és Indítása
+
+5. Szerver Telepítése és Indítása
+6. 
 Navigáljon a Szerver mappába a projekt gyökérkönyvtárában:
+
 bash
+
 cd repository/Moodle.Server/Moodle.Server/Moodle.Server
+
 dotnet restore
+
 dotnet run
 
-4. Kliens Telepítése és Indítása
+
+8. Kliens Telepítése és Indítása
+9. 
 Navigáljon a Kliens mappába a projekt gyökérkönyvtárában:
+
 bash
+
 cd repository/Moodle.Client
+
 bash
+
 npm install
+
 npm start dev
+
 
 Mostantól a Moodle weboldal elérhető a böngészőben a http://localhost:5191 címen.
 
