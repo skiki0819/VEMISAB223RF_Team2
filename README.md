@@ -1,7 +1,9 @@
 Projekt Leírása
+
 A projekt egy egyetemi rendszerfejlesztési kurzus keretében készült. Célja a Moodle weboldal megvalósítása.
 
 Használt Technológiák:
+
 C# 
 Entity Framework
 ASP.NET
@@ -14,11 +16,17 @@ CSS
 
 
 Használati Útmutató - Frissen Telepített Windows Operációs Rendszerhez
+
 Előfeltételek:
+
 Telepítse a .NET SDK legfrissebb verzióját. https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
+
 Telepítse a Node.js legfrissebb LTS verzióját. https://nodejs.org/en
+
 Telepítse a Git legfrissebb verzióját. https://git-scm.com/download/win
+
 Telepítse a Visual Studio legfrissebb verzióját. https://visualstudio.microsoft.com/downloads/
+
 
 Telepítési és Indítási Útmutató
 1. Projekt Klónozása
