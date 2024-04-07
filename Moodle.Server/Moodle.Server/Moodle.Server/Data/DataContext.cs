@@ -12,6 +12,5 @@ namespace Moodle.Server.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Degree> Degrees { get; set; }
         public DbSet<Event> Event { get; set; }
-
     }
 }

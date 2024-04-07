@@ -34,5 +34,17 @@ namespace Moodle.Server.Controllers
             return Ok(result);
         }
 
+
+        [HttpGet]
+        [Route("GetUsersByCourseId/{courseId}")]
+        public async Task<IActionResult> GetUsersByCourseId(int courseId)
+        {
+            var response = await _userService.GetUsersByCourseId(courseId);
+
+            if (response.Success)
+                return Ok(response.Data);
+
+            return NotFound(response);
+        }
     }
 }
