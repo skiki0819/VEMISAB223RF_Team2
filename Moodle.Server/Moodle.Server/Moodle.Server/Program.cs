@@ -22,15 +22,11 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IDegreeService, DegreeService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+
 var app = builder.Build();
 
-// Add CORS policy
-app.UseCors(policy =>
-{
-    policy.AllowAnyHeader();
-    policy.AllowAnyMethod();
-    policy.AllowAnyOrigin();
-});
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -40,6 +36,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Add CORS policy
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

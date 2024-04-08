@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Cors;
 namespace Moodle.Server.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("AllowSpecificOrigin")]
     [ApiController]
 
     public class CourseController : ControllerBase
