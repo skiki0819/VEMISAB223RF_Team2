@@ -11,6 +11,6 @@
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Data",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models"
   ],
-  "SelectedNode": "\\Moodle.Client\\src\\pages\\Login.tsx",
+  "SelectedNode": "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
