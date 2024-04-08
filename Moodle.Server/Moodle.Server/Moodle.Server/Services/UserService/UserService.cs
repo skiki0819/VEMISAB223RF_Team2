@@ -64,5 +64,66 @@ namespace Moodle.Server.Services.UserService
             }
             return response;
         }
+
+        public async Task<ServiceResponse<List<GetUserDto>>> GetUsersByCourseId(int id)
+        {
+            var response = new ServiceResponse<List<GetUserDto>>();
+
+            try
+            {
+                var course = await _context.Courses
+                    .Include(c => c.Users).ThenInclude(u => u.Degree)
+                    .FirstOrDefaultAsync(c => c.Id == id);
+
+                if (course == null)
+                {
+                    response.Message = "Course not found.";
+                    response.Success = false;
+                    return response;
+                }
+
+                var users = course.Users.Select(u => new GetUserDto
+                {
+                    Name = u.Name,
+                    Degree = u.Degree != null ? new DegreeDto { Name = u.Degree.Name } : null
+
+                }).ToList();
+
+                response.Data = users;
+                response.Message = "Users successfully retrieved by Course Id.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                response.Success = false;
+                return response;
+            }
+        }
+
+        public async Task<ServiceResponse<List<UserDto>>> Login(string username, string password)
+        {
+            var response = new ServiceResponse<List<UserDto>>();
+            try
+            {
+                var dbUser = await _context.Users.FirstOrDefaultAsync(c => c.Username == username && c.Password == password);
+
+                if (dbUser == null)
+                {
+                    response.Message = "Felhasználónév vagy jelszó helytelen.";
+                    return response;
+                }
+
+                response.Data = new List<UserDto> { _mapper.Map<UserDto>(dbUser) };
+                response.Success = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Message = "Adatbázishoz való hozzáférés közben hiba történt.";
+                return response;
+            }
+        }
+
     }
 }

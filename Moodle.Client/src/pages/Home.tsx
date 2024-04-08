@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 
 export const Home = () => {
-    const [pageNumber] = useState(1);
-    const [pageSize] = useState(10);
 
     useEffect(() => {
         const fetchCourses = async () => {
@@ -17,7 +15,7 @@ export const Home = () => {
         
 
         fetchCourses();
-    }, [pageNumber, pageSize]);
+    }, []);
 
     return (
         <div>

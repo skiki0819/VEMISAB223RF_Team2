@@ -34,5 +34,33 @@ namespace Moodle.Server.Controllers
             return Ok(result);
         }
 
+
+        [HttpGet]
+        [Route("GetUsersByCourseId/{courseId}")]
+        public async Task<IActionResult> GetUsersByCourseId(int courseId)
+        {
+            var response = await _userService.GetUsersByCourseId(courseId);
+
+            if (response.Success)
+                return Ok(response.Data);
+
+            return NotFound(response);
+        }
+
+        [HttpGet]
+        [Route("Login")]
+        public async Task<IActionResult> Login(string username, string password)
+        {
+            var response = await _userService.Login(username, password);
+
+            if (response.Success)
+            {
+                return Ok(response.Data);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
     }
 }
