@@ -6,7 +6,7 @@ export const Home = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await axios.get(`http://localhost:5191/swagger/v1/swagger.json`);
+                const response = await axios.get(`http://localhost:5191/api/Course`);
                 console.log('API válasz:', response.data);
             } catch (error) {
                 console.error('Error fetching courses:', error);
