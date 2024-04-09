@@ -11,6 +11,6 @@
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Data",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models"
   ],
-  "SelectedNode": "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\appsettings.json",
+  "SelectedNode": "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\CourseController.cs",
   "PreviewInSolutionExplorer": false
 }

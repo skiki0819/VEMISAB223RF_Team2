@@ -1,3 +1,12 @@
+import { Navbar } from "../components/Navbar";
+
 export const MyCourses = () => {
-    return <h1>My Courses Page</h1>
+    return (
+        <div>
+            <Navbar />
+            <h1>My Courses Page</h1>
+        </div>
+    );
 }
+
+export default MyCourses;
