@@ -5,7 +5,6 @@ namespace Moodle.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class CourseController : ControllerBase
     {
         private readonly ICourseService _courseService;
@@ -19,20 +18,20 @@ namespace Moodle.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<List<GetCourseDto>>> GetAllCourse() 
         {
-            var result = _courseService.GetAllCourse();
-            if (result is null)
-                return NotFound("No course found.");
+            var result = await _courseService.GetAllCourse();
+            if (result.Data is null)
+                return NotFound(result.Message);
 
             return Ok(result);
         }
 
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<GetCourseDto>>> GetSingleCourse(int id)
+        public async Task<ActionResult<GetCourseDto>> GetSingleCourse(int id)
         {
-            var result = _courseService.GetSingleCourse(id);
-            if (result is null)
-                return NotFound("Course not found.");
+            var result = await _courseService.GetSingleCourse(id);
+            if (result.Data is null)
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -40,9 +39,9 @@ namespace Moodle.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<List<GetCourseDto>>> AddCourse([FromBody] AddCourseDto course)
         {
-            var result = _courseService.AddCourse(course);
-            if (result is null)
-                return NotFound("Course not found.");
+            var result = await _courseService.AddCourse(course);
+            if (result.Data is null)
+                return NotFound(result.Message);
 
             return Ok(result);
         }
@@ -52,8 +51,8 @@ namespace Moodle.Server.Controllers
         public async Task<ActionResult<List<GetCourseDto>>> GetCoursesByDegree(int id)
         {
             var result = await _courseService.GetCoursesByDegree(id);
-            if (result is null)
-                return NotFound();
+            if (result.Data is null)
+                return NotFound(result.Message);
 
             return Ok(result);
         }

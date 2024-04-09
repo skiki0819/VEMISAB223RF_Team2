@@ -5,6 +5,7 @@ global using Microsoft.EntityFrameworkCore;
 global using Moodle.Server.Services.CourseService;
 global using Moodle.Server.Services.DegreeService;
 global using Moodle.Server.Services.UserService;
+global using Moodle.Server.Services.AuthService;
 global using AutoMapper;
 global using Moodle.Server.Models.Entities;
 global using Moodle.Server.Models.Dtos;
@@ -18,9 +19,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IDegreeService, DegreeService>();
 builder.Services.AddScoped<IUserService, UserService>();
+
 
 
 var app = builder.Build();

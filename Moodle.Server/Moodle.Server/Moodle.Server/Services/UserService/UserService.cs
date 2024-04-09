@@ -77,7 +77,7 @@ namespace Moodle.Server.Services.UserService
 
                 if (course == null)
                 {
-                    response.Message = "Course not found.";
+                    response.Message = ResponseMessages.CourseNotFound;
                     response.Success = false;
                     return response;
                 }
@@ -90,7 +90,7 @@ namespace Moodle.Server.Services.UserService
                 }).ToList();
 
                 response.Data = users;
-                response.Message = "Users successfully retrieved by Course Id.";
+                response.Message = ResponseMessages.UsersSuccesfullyListed;
                 return response;
             }
             catch (Exception ex)
@@ -100,30 +100,5 @@ namespace Moodle.Server.Services.UserService
                 return response;
             }
         }
-
-        public async Task<ServiceResponse<List<UserDto>>> Login(string username, string password)
-        {
-            var response = new ServiceResponse<List<UserDto>>();
-            try
-            {
-                var dbUser = await _context.Users.FirstOrDefaultAsync(c => c.Username == username && c.Password == password);
-
-                if (dbUser == null)
-                {
-                    response.Message = "Felhasználónév vagy jelszó helytelen.";
-                    return response;
-                }
-
-                response.Data = new List<UserDto> { _mapper.Map<UserDto>(dbUser) };
-                response.Success = true;
-                return response;
-            }
-            catch (Exception ex)
-            {
-                response.Message = "Adatbázishoz való hozzáférés közben hiba történt.";
-                return response;
-            }
-        }
-
     }
 }
