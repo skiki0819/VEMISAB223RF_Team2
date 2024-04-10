@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navbar } from "../components/Navbar";
 import "../styles/Home.css";
+import Modal from "react-modal";
+import { Students } from "../components/Students";
+
+Modal.setAppElement("#root");
 
 interface Course {
   id: number;
@@ -25,10 +29,10 @@ export const Home = () => {
   const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
   const [courseNameFilter, setCourseNameFilter] = useState<string>("");
   const [degreeIdFilter, setDegreeIdFilter] = useState<number | null>(null);
-  const [showStudents, setShowStudents] = useState(false);
-  const [showRegistration, setShowRegistration] = useState(false);
-  const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState<Student[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -37,6 +41,7 @@ export const Home = () => {
         if (response.data && response.data.success) {
           setCourses(response.data.data);
           setFilteredCourses(response.data.data);
+          console.log(response.data);
         }
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -46,7 +51,21 @@ export const Home = () => {
     fetchCourses();
   }, []);
 
-  const AddCourseToUSer = async (courseId: number) => {
+  const GetUserByCourseId = async (courseId: number) => {
+    try {
+      const response = await axios.get(`http://localhost:5191/api/User/GetUsersByCourseId/${courseId}`);
+      if(response.data && response.data.success) {
+        setStudents(response.data.data);
+        setSelectedCourseId(courseId);
+        setModalIsOpen(true);
+        console.log(response.data);
+      }
+    } catch(error) {
+      console.error("Error while listing students: ", error);
+    }
+  };
+
+  const handleAddCourseToUser = async (courseId: number) => {
     const userId = localStorage.getItem("userId");
     if (!userId) {
       setErrorMessage("Nincs bejelentkezve felhasználó.");
@@ -62,10 +81,10 @@ export const Home = () => {
         }
       );
 
-      alert(response.data.message); // Felugró ablakban megjelenítjük a response üzenetét
+      alert(response.data.message);
     } catch (error) {
-      console.error("Error enrolling:", error);
-      setErrorMessage("Hiba történt a felvétel során.");
+      console.error("Error adding course to user:", error);
+      setErrorMessage("Hiba történt a kurzus felvételekor.");
     }
   };
 
@@ -139,17 +158,24 @@ export const Home = () => {
           <div key={course.id} className="course">
             <div className="course-name">{course.name}</div>
             <div>
-              {course.code}, Credits: {course.credit}
-            </div>
-            <div>
-              <span onClick={() => setShowStudents(true)}>Hallgatók</span>
-            </div>
-            <div>
-              <span onClick={() => setShowRegistration(true)}>Felvétel</span>
+              <button onClick={() => GetUserByCourseId(course.id)}>Hallgatók</button>
+              <button onClick={() => handleAddCourseToUser(course.id)}>Felvétel</button>
             </div>
           </div>
         ))}
       </div>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="Hallgatók"
+        ariaHideApp={false}
+      >
+        <h2>Hallgatók</h2>
+        <Students students={students} />
+      </Modal>
+
+      {errorMessage && <div>{errorMessage}</div>}
     </div>
   );
 };
