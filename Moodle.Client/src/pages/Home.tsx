@@ -11,8 +11,8 @@ export const Home = () => {
             try {
                 const response = await axios.get(`http://localhost:5191/api/Course`);
                 console.log('API válasz:', response.data);
-                if (response.data && response.data.isCompletedSuccessfully) {
-                    setCourses(response.data.result.data);
+                if (response.data && response.data.success) {
+                    setCourses(response.data.data);
                 }
             } catch (error) {
                 console.error('Error fetching courses:', error);
