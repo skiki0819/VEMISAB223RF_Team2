@@ -3,8 +3,15 @@ import axios from 'axios';
 import { Navbar } from '../components/Navbar';
 import '../styles/Home.css';
 
+interface Course {
+    id: string;
+    name: string;
+    code: string;
+    credit: number;
+}
+
 export const Home = () => {
-    const [courses, setCourses] = useState([]);
+    const [courses, setCourses] = useState<Course[]>([]);
 
     useEffect(() => {
         const fetchCourses = async () => {
@@ -27,7 +34,7 @@ export const Home = () => {
             <Navbar />
             <h1>Courses</h1>
             <div className='course-container'>
-                {courses.map((course: any) => (
+                {courses.map((course) => (
                     <div key={course.id} className='course'>
                         <div className='course-name'>{course.name}</div>
                         <div>{course.code}, Credits: {course.credit}</div>

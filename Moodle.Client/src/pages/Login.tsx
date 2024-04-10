@@ -29,7 +29,7 @@ export const Login = () => {
   
       console.log(response.data);
       navigate('/home', { state: { userId: userId } });
-    } catch (error: any) {
+    } catch (error) {
       if (axios.isAxiosError(error) && error.response && error.response.status === 404) {
         const errorMessage = error.response.data;
         console.log(errorMessage);
