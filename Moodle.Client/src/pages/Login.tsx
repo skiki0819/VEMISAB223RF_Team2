@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
-import '../styles/Login.css'
+import '../styles/Login.css';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -23,8 +23,12 @@ export const Login = () => {
         username: username,
         password: password
       });
+  
+      const userId = response.data.data.id;
+      localStorage.setItem('userId', userId);
+  
       console.log(response.data);
-      navigate('/home');
+      navigate('/home', { state: { userId: userId } });
     } catch (error: any) {
       if (axios.isAxiosError(error) && error.response && error.response.status === 404) {
         const errorMessage = error.response.data;
@@ -35,6 +39,7 @@ export const Login = () => {
       }
     }
   };
+  
   
   return (
     <div className='container'>
@@ -56,3 +61,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;
