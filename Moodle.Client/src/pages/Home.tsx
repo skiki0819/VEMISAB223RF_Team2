@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ChangeEvent } from "react";
 import axios from "axios";
 import { Navbar } from "../components/Navbar";
 import "../styles/Home.css";
@@ -22,21 +23,31 @@ interface Student {
 
 export const Home = () => {
   const [courses, setCourses] = useState<Course[]>([]);
+  const [degrees, setDegrees] = useState<Degree[]>([]);
   const [filteredCourses, setFilteredCourses] = useState<Course[]>([]);
   const [courseNameFilter, setCourseNameFilter] = useState<string>("");
   const [degreeIdFilter, setDegreeIdFilter] = useState<number | null>(null);
   const [showStudents, setShowStudents] = useState(false);
-  const [showRegistration, setShowRegistration] = useState(false);
+  const [selectedDegreeId, setSelectedDegreeId] = useState<number>(0);
   const [students, setStudents] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(`http://localhost:5191/api/Course`);
-        if (response.data && response.data.success) {
-          setCourses(response.data.data);
-          setFilteredCourses(response.data.data);
+        const coursesResponse = await axios.get(
+          `http://localhost:5191/api/Course`
+        );
+        if (coursesResponse.data && coursesResponse.data.success) {
+          setCourses(coursesResponse.data.data);
+          setFilteredCourses(coursesResponse.data.data);
+        }
+        const degreesResponse = await axios.get(
+          `http://localhost:5191/api/Degree/GetAll`
+        );
+        if (degreesResponse.data && degreesResponse.data.success) {
+          setDegrees(degreesResponse.data.data);
+          console.log(degreesResponse.data.data);
         }
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -99,6 +110,25 @@ export const Home = () => {
     }
   };
 
+  const handleFilterChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDegreeId(Number(event.target.value));
+    fetchFilteredCourses(Number(selectedDegreeId));
+  };
+
+  const fetchFilteredCourses = async (degreeId: number) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5191/api/Course/GetCoursesByDegree/${degreeId}`
+      );
+      if (response.data && response.data.success) {
+        setFilteredCourses(response.data.data);
+        console.log(response.data.data);
+      }
+    } catch (error) {
+      console.error("Error enrolling:", error);
+    }
+  };
+
   return (
     <div>
       <Navbar />
@@ -134,6 +164,22 @@ export const Home = () => {
         />
       </div>
 
+      <div className="degree-filter-select">
+        <label htmlFor="filter-select">Szűrés:</label>
+        <select
+          id="filter-select"
+          onChange={handleFilterChange}
+          value={selectedDegreeId}
+        >
+          <option value="">Válassz szakot</option>
+          {degrees.map((degree) => (
+            <option key={degree.id} value={degree.id}>
+              {degree.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <div className="course-container">
         {filteredCourses.map((course) => (
           <div key={course.id} className="course">
@@ -143,6 +189,8 @@ export const Home = () => {
             </div>
             <div>
               <span onClick={() => setShowStudents(true)}>Hallgatók</span>
+            </div>
+            <div>
               <span onClick={() => AddCourseToUSer(course.id)}>Felvétel</span>
             </div>
           </div>
