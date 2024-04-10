@@ -143,9 +143,7 @@ export const Home = () => {
             </div>
             <div>
               <span onClick={() => setShowStudents(true)}>Hallgatók</span>
-            </div>
-            <div>
-              <span onClick={() => setShowRegistration(true)}>Felvétel</span>
+              <span onClick={() => AddCourseToUSer(course.id)}>Felvétel</span>
             </div>
           </div>
         ))}
