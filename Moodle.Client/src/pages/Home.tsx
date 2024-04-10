@@ -131,9 +131,28 @@ export const Home = () => {
     }
   };
 
-  const handleFilterChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDegreeId(Number(event.target.value));
-    fetchFilteredCourses(Number(selectedDegreeId));
+  const handleFilterChange = async (event: ChangeEvent<HTMLSelectElement>) => {
+    const degreeId = Number(event.target.value);
+    setSelectedDegreeId(degreeId);
+    console.log(
+      `Event.target.Value:${event.target.value} DegreeId: ${degreeId} SelectedDegreeId: ${selectedDegreeId}`
+    );
+    if (degreeId === 0) {
+      try {
+        setErrorMessage("");
+        const coursesResponse = await axios.get(
+          `http://localhost:5191/api/Course`
+        );
+        console.log(coursesResponse.data);
+        if (coursesResponse.data && coursesResponse.data.success) {
+          setFilteredCourses(coursesResponse.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+    } else {
+      fetchFilteredCourses(degreeId);
+    }
   };
 
   const fetchFilteredCourses = async (degreeId: number) => {
@@ -143,8 +162,11 @@ export const Home = () => {
       );
       if (response.data.data && response.data.success) {
         setFilteredCourses(response.data.data);
+        setErrorMessage("");
         console.log(response.data.data);
       } else {
+        setFilteredCourses([]);
+        setErrorMessage(response.data.message);
       }
     } catch (error) {
       console.error("Error enrolling:", error);
@@ -171,21 +193,6 @@ export const Home = () => {
         />
       </div>
 
-      <div className="degree-filter">
-        <label htmlFor="degreeIdFilter" style={{ fontWeight: "bold" }}>
-          Filter by Degree ID:
-        </label>
-        <input
-          type="text"
-          id="degreeIdFilter"
-          className="filter2"
-          name="degreeIdFilter"
-          value={degreeIdFilter ?? ""}
-          onChange={handleChange}
-          placeholder="Enter degree ID"
-        />
-      </div>
-
       <div className="degree-filter-select">
         <label htmlFor="filter-select">Szűrés:</label>
         <select
@@ -193,7 +200,7 @@ export const Home = () => {
           onChange={handleFilterChange}
           value={selectedDegreeId}
         >
-          <option value="">Válassz szakot</option>
+          <option value="0">Válassz szakot</option>
           {degrees.map((degree) => (
             <option key={degree.id} value={degree.id}>
               {degree.name}
@@ -203,19 +210,23 @@ export const Home = () => {
       </div>
 
       <div className="course-container">
-        {filteredCourses.map((course) => (
-          <div key={course.id} className="course">
-            <div className="course-name">{course.name}</div>
-            <div>
-              <button onClick={() => GetUserByCourseId(course.id)}>
-                Hallgatók
-              </button>
-              <button onClick={() => handleAddCourseToUser(course.id)}>
-                Felvétel
-              </button>
+        {errorMessage ? (
+          <div className="error-message">{errorMessage}</div>
+        ) : (
+          filteredCourses.map((course) => (
+            <div key={course.id} className="course">
+              <div className="course-name">{course.name}</div>
+              <div>
+                <button onClick={() => GetUserByCourseId(course.id)}>
+                  Hallgatók
+                </button>
+                <button onClick={() => handleAddCourseToUser(course.id)}>
+                  Felvétel
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
 
       <Modal
