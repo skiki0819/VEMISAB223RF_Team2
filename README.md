@@ -21,7 +21,7 @@ Használati Útmutató - Frissen Telepített Windows Operációs Rendszerhez
 
 Előfeltételek:
 
-Telepítse a .NET SDK legfrissebb verzióját. https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
+Telepítse a .NET SDK futtató környezetét. Az alkalmazás target frameworkje .NET 8.0. https://dotnet.microsoft.com/en-us/download/visual-studio-sdks
 
 Telepítse a Node.js legfrissebb LTS verzióját. https://nodejs.org/en
 
@@ -65,6 +65,9 @@ dotnet restore
 
 dotnet run
 
+Mostantól a Moodle API swagger elindul a böngészőben a http://localhost:5191 címen.
+
+
 
 8. Kliens Telepítése és Indítása
 
@@ -78,11 +81,12 @@ bash
 
 npm install
 
-npm start dev
+npm run dev
+
+A terminalban megjelent localhost címen elérhető a kliens weboldal. pl: http://localhost:5173
 
 
 
-Mostantól a Moodle weboldal elérhető a böngészőben a http://localhost:5191 címen.
 
 Szerkesztők:
 
