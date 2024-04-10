@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import '../styles/Login.css'
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -36,20 +37,22 @@ export const Login = () => {
   };
   
   return (
-    <div>
-      <h1>Login Page</h1>
-      <div>
-        <label>Username:</label>
-        <input type="text" value={username} onChange={handleUsernameChange} />
+    <div className='container'>
+      <div className='login-form'>
+        <h1>Login</h1>
+        <div>
+          <label>Username:</label><br />
+          <input type="text" value={username} onChange={handleUsernameChange} />
+        </div>
+        <div>
+          <label>Password:</label><br />
+          <input type="password" value={password} onChange={handlePasswordChange} />
+        </div>
+        {error && (
+          <div className='error-message'>{error}</div>
+        )}
+        <button onClick={handleLogin}>Login</button>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" value={password} onChange={handlePasswordChange} />
-      </div>
-      {error && (
-        <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
-      )}
-      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };
