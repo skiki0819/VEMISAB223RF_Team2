@@ -5,14 +5,80 @@
 }
 
 .course {
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 0.2rem;
+    padding: 0.3rem;
     border: 1px solid #000000;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     width: 300px;
     text-align: center;
+    width: 100%;
 }
 
 .course-name {
     font-weight: bold;
 }
+
+.course-filter {
+    margin-bottom: 0.5rem;
+}
+
+#degreeFilter {
+    height: 1.5rem;
+    margin-left:0.5rem
+    
+}
+
+
+.filter {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 0.5rem;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+    .filter:focus {
+        outline: none;
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0,123,255,0.5);
+    }
+
+    .filter:hover {
+        border-color: #b3b3b3; /* Darken border color on hover */
+    }
+
+    .filter::placeholder {
+        color: #999; /* Placeholder text color */
+        opacity: 0.9; /* Placeholder text opacity */
+    }
+
+
+.filter2 {
+    padding: 5px;
+    margin-bottom: 0.5rem;
+    width: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+    .filter2:focus {
+        outline: none;
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0,123,255,0.5);
+    }
+
+    .filter2:hover {
+        border-color: #b3b3b3; /* Darken border color on hover */
+    }
+
+    .filter2::placeholder {
+        color: #999; /* Placeholder text color */
+        opacity: 0.9; /* Placeholder text opacity */
+    }
