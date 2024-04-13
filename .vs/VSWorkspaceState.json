@@ -2,15 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\Moodle.Client",
+    "\\Moodle.Client\\public",
     "\\Moodle.Client\\src",
-    "\\Moodle.Client\\src\\pages",
+    "\\Moodle.Client\\src\\components",
+    "\\Moodle.Client\\src\\styles",
     "\\Moodle.Server",
     "\\Moodle.Server\\Moodle.Server",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server",
-    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers",
-    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Data",
     "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models"
   ],
-  "SelectedNode": "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\CourseController.cs",
   "PreviewInSolutionExplorer": false
 }

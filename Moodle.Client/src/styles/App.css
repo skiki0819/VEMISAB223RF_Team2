@@ -3,21 +3,109 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .NavLinks, .LogoutButton {
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-right: -8px;
+    padding-bottom: 5px;
+    border-radius: 0 0 10px 10px;
+}
+
+.NavLinks,
+.LogoutButton {
     display: flex;
-  }
-  
-  .Navbar a {
+}
+
+.Navbar a {
     color: white;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-  }
-  
-  .Navbar a:hover {
+}
+
+.Navbar a:hover {
     background-color: #ddd;
     color: black;
-  }
-  
+    border-radius: 10px;
+}
+
+
+
+.Footer {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 5px 10px;
+    margin-left: -20px;
+    color: white;
+}
+
+.FooterLinks,
+.FooterInfo {
+    display: flex;
+    gap: 20px;
+    /* Kicsit n�velt�k a gap-ot a linkek k�z�tt */
+}
+
+.Footer a {
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    /* Kiss� cs�kkentett�k a paddingot */
+    text-decoration: none;
+}
+
+.Footer a:hover {
+    background-color: #ddd;
+    color: black;
+    border-radius: 10px;
+}
+
+
+button {
+    background-color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 4px #555;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    width: 100px;
+    border: 0px;
+}
+
+button:hover {
+    box-shadow: 2px 1px 4px rgb(0, 0, 0);
+}
+
+button:active {
+    box-shadow: 1px 2px 5px rgb(0, 0, 0);
+}
+
+
+#filter-select {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 0.5rem;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    text-align: center;
+}
+
+#filter-select:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#filter-select:hover {
+    border-color: #b3b3b3;
+}
