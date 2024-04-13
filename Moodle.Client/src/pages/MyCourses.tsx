@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Navbar } from '../components/Navbar';
+import { Footer } from "../components/Footer";
 import '../styles/Home.css';
 
 interface Course {
@@ -35,7 +36,7 @@ export const MyCourses = () => {
     return (
         <div>
             <Navbar />
-            <h1>My Courses</h1>
+            <h2>My Courses</h2>
             <div className='course-container'>
                 {courses.map((course) => (
                     <div key={course.id} className='course'>
@@ -44,6 +45,7 @@ export const MyCourses = () => {
                     </div>
                 ))}
             </div>
+            <Footer />
         </div>
     );
 };

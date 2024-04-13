@@ -24,8 +24,7 @@
 
 #degreeFilter {
     height: 1.5rem;
-    margin-left:0.5rem
-    
+    margin-left: 0.5rem
 }
 
 
@@ -41,20 +40,23 @@
     text-align: center;
 }
 
-    .filter:focus {
-        outline: none;
-        border-color: #007BFF;
-        box-shadow: 0 0 5px rgba(0,123,255,0.5);
-    }
+.filter:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
-    .filter:hover {
-        border-color: #b3b3b3; /* Darken border color on hover */
-    }
+.filter:hover {
+    border-color: #b3b3b3;
+    /* Darken border color on hover */
+}
 
-    .filter::placeholder {
-        color: #999; /* Placeholder text color */
-        opacity: 0.9; /* Placeholder text opacity */
-    }
+.filter::placeholder {
+    color: #999;
+    /* Placeholder text color */
+    opacity: 0.9;
+    /* Placeholder text opacity */
+}
 
 
 .filter2 {
@@ -68,17 +70,29 @@
     text-align: center;
 }
 
-    .filter2:focus {
-        outline: none;
-        border-color: #007BFF;
-        box-shadow: 0 0 5px rgba(0,123,255,0.5);
-    }
+.filter2:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
-    .filter2:hover {
-        border-color: #b3b3b3; /* Darken border color on hover */
-    }
+.filter2:hover {
+    border-color: #b3b3b3;
+    /* Darken border color on hover */
+}
 
-    .filter2::placeholder {
-        color: #999; /* Placeholder text color */
-        opacity: 0.9; /* Placeholder text opacity */
-    }
+.filter2::placeholder {
+    color: #999;
+    /* Placeholder text color */
+    opacity: 0.9;
+    /* Placeholder text opacity */
+}
+
+
+#filterDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Ha az elemek t�ll�pik a kont�ner sz�less�g�t, akkor t�rje sort */
+}

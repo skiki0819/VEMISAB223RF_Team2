@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ChangeEvent } from "react";
 import axios from "axios";
 import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 import "../styles/Home.css";
 import Modal from "react-modal";
 import { Students } from "../components/Students";
@@ -176,39 +177,42 @@ export const Home = () => {
   return (
     <div>
       <Navbar />
-      <h1>Courses</h1>
+      <h2>Courses</h2>
+      <div id="filterDiv">
 
-      <div className="course-filter">
-        <label htmlFor="courseNameFilter" style={{ fontWeight: "bold" }}>
-          Filter by Course Name:
-        </label>
-        <input
-          type="text"
-          id="courseNameFilter"
-          className="filter"
-          name="courseNameFilter"
-          value={courseNameFilter}
-          onChange={handleChange}
-          placeholder="Enter course name"
-        />
+
+        <div className="degree-filter-select">
+            <label htmlFor="filter-select" style={{ fontWeight: "bold" }}>
+             Filter by Degree 
+             </label>
+          <select
+            id="filter-select"
+            onChange={handleFilterChange}
+            value={selectedDegreeId}
+          >
+            <option value="0">Válassz szakot</option>
+            {degrees.map((degree) => (
+              <option key={degree.id} value={degree.id}>
+                {degree.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="course-filter">
+          <label htmlFor="courseNameFilter" style={{ fontWeight: "bold" }}>
+            Filter by Course
+          </label>
+          <input
+            type="text"
+            id="courseNameFilter"
+            className="filter"
+            name="courseNameFilter"
+            value={courseNameFilter}
+            onChange={handleChange}
+            placeholder="Enter course name"
+          />
+        </div>
       </div>
-
-      <div className="degree-filter-select">
-        <label htmlFor="filter-select">Szűrés:</label>
-        <select
-          id="filter-select"
-          onChange={handleFilterChange}
-          value={selectedDegreeId}
-        >
-          <option value="0">Válassz szakot</option>
-          {degrees.map((degree) => (
-            <option key={degree.id} value={degree.id}>
-              {degree.name}
-            </option>
-          ))}
-        </select>
-      </div>
-
       <div className="course-container">
         {errorMessage ? (
           <div className="error-message">{errorMessage}</div>
@@ -228,7 +232,6 @@ export const Home = () => {
           ))
         )}
       </div>
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
@@ -238,8 +241,8 @@ export const Home = () => {
         <h2>Hallgatók</h2>
         <Students students={students} />
       </Modal>
-
       {errorMessage && <div>{errorMessage}</div>}
+      <Footer />
     </div>
   );
 };

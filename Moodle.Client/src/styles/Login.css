@@ -2,14 +2,14 @@
     color: red;
     margin: 10px 0;
 }
-  
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-  
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -20,6 +20,6 @@
     border-radius: 5px;
 }
 
-.login-form > * {
+.login-form>* {
     margin-bottom: 30px;
 }
