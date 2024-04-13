@@ -10,6 +10,7 @@ global using AutoMapper;
 global using Moodle.Server.Models.Entities;
 global using Moodle.Server.Models.Dtos;
 global using Moodle.Server.Constants;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,7 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IDegreeService, DegreeService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
-
+//builder.Services.AddAuthentication().AddJwtBearer();
 
 var app = builder.Build();
 

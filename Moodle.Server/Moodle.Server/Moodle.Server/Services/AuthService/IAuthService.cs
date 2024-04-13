@@ -2,6 +2,6 @@
 {
     public interface IAuthService
     {
-        Task<ServiceResponse<LoginResponseDto>> Login(LoginRequestDto request);
+        //Task<ServiceResponse<LoginResponseDto>> Login(LoginRequestDto request);
     }
 }

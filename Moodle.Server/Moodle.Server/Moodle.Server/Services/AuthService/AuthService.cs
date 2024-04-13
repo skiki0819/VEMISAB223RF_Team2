@@ -10,7 +10,7 @@
             _mapper = mapper;
             _context = context;
         }
-        public async Task<ServiceResponse<LoginResponseDto>> Login(LoginRequestDto request)
+        /*public async Task<ServiceResponse<LoginResponseDto>> Login(LoginRequestDto request)
         {
             var response = new ServiceResponse<LoginResponseDto>();
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == request.Username && u.Password == request.Password);
@@ -27,6 +27,6 @@
             return response;
 
 
-        }
+        }*/
     }
 }
