@@ -143,6 +143,9 @@ namespace Moodle.Server.Migrations
                         .IsRequired()
                         .HasColumnType("BLOB");
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -151,22 +154,9 @@ namespace Moodle.Server.Migrations
 
                     b.HasIndex("DegreeId");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("RoleUser", b =>
-                {
-                    b.Property<int>("RolesId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UsersId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("RolesId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("RoleUser");
                 });
 
             modelBuilder.Entity("CourseDegree", b =>
@@ -218,22 +208,15 @@ namespace Moodle.Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Moodle.Server.Models.Entities.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Degree");
-                });
 
-            modelBuilder.Entity("RoleUser", b =>
-                {
-                    b.HasOne("Moodle.Server.Models.Entities.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Moodle.Server.Models.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("Moodle.Server.Models.Entities.Course", b =>
@@ -242,6 +225,11 @@ namespace Moodle.Server.Migrations
                 });
 
             modelBuilder.Entity("Moodle.Server.Models.Entities.Degree", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Moodle.Server.Models.Entities.Role", b =>
                 {
                     b.Navigation("Users");
                 });

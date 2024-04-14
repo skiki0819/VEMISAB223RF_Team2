@@ -13,7 +13,9 @@ namespace Moodle.Server.Models.Entities
         [ForeignKey("DegreeId")]
         public Degree Degree { get; set; }
         public List<Course> Courses { get; set; }
-        public List<Role> Roles { get; set; }
+        public int RoleId { get; set; }
+        [ForeignKey("RoleId")]
+        public Role Role { get; set; }
     }
 
 }

@@ -13,7 +13,7 @@ namespace Moodle.Server.Controllers
             _authService = authService;
         }
 
-        /*[HttpPost]
+        [HttpPost]
         [Route("Login")]
         public async Task<ActionResult<LoginResponseDto>> Login(LoginRequestDto login)
         {
@@ -22,7 +22,18 @@ namespace Moodle.Server.Controllers
                 return NotFound(result.Message);
 
             return Ok(result);
-        }*/
+        }
+
+        [HttpPost]
+        [Route("Register")]
+        public async Task<ActionResult<RegisterResponseDto>> Register(RegisterRequestDto register)
+        {
+            var result = await _authService.Register(register);
+            if (result.Success is false)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+        }
     }
     
 }

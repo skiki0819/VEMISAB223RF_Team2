@@ -22,6 +22,8 @@
         //Auth messages
         public const string LoginInformationError = "The username or password is not correct.";
         public const string LoginSuccess = "User successfully logged in.";
+        public const string UserAlreadyExists = "This username is already taken.";
+        public const string UserRegistered = "User successfully registered.";
 
         //Event messages
         public const string EventNotFound = "Event not found.";

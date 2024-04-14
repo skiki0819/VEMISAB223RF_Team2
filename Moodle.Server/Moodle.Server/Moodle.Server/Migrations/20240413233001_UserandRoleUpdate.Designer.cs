@@ -10,8 +10,8 @@ using Moodle.Server.Data;
 namespace Moodle.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240413194731_UserUpdate")]
-    partial class UserUpdate
+    [Migration("20240413233001_UserandRoleUpdate")]
+    partial class UserandRoleUpdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
