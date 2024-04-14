@@ -6,6 +6,7 @@ global using Moodle.Server.Services.CourseService;
 global using Moodle.Server.Services.DegreeService;
 global using Moodle.Server.Services.UserService;
 global using Moodle.Server.Services.AuthService;
+global using Moodle.Server.Services.RoleService;
 global using AutoMapper;
 global using Moodle.Server.Models.Entities;
 global using Moodle.Server.Models.Dtos;
@@ -50,6 +51,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IDegreeService, DegreeService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
     options => {
