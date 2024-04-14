@@ -17,8 +17,8 @@ namespace Moodle.Server.Controllers
         public async Task<ActionResult<List<DegreeDto>>> Get()
         {
             var result = await _degreeService.GetAllDegrees();
-            if (result is null)
-                return NotFound("No degree found.");
+            if (result.Data is null)
+                return NotFound(result.Message);
 
             return Ok(result);
         }

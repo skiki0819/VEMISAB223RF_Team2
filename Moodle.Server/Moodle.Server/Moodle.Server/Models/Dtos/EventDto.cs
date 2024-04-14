@@ -13,5 +13,9 @@ namespace Moodle.Server.Models.Dtos
     {
     }
     
+    public class GetEventDto : EventDto
+    {
+        public GetCourseDto Course { get; set; }
+    }
     
 }

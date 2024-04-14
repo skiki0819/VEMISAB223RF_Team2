@@ -6,11 +6,30 @@ namespace Moodle.Server.Controllers
     [Route("api/[controller]")]
     public class EventController : ControllerBase
     {
-        private readonly IEventService _eventservice;
+        private readonly IEventService _eventService;
 
-        public EventController(IEventService eventservice)
+        public EventController(IEventService eventService)
         {
-            _eventservice = eventservice;
+            _eventService = eventService;
+        }
+
+        [HttpGet]
+        [Route("GetEvents")]
+        public async Task<IActionResult> GetEvents()
+        {
+            var result = await _eventService.GetEvents();
+            if (result.Data is null)
+                return NotFound(result.Message);
+
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("CreateEvent")]
+        public async Task<IActionResult> CreateEvent(CreateEventDto eventInfo)
+        {
+            var result = await _eventService.CreateEvent(eventInfo);
+            return Ok(result);
         }
     }
 }
