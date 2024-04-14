@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Moodle.Server.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
