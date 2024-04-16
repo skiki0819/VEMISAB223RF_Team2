@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Moodle.Server.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class EventController : ControllerBase
     {
@@ -24,6 +26,7 @@ namespace Moodle.Server.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = Roles.Teacher)]
         [HttpPost]
         [Route("CreateEvent")]
         public async Task<IActionResult> CreateEvent(CreateEventDto eventInfo)

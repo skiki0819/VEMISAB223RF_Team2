@@ -58,6 +58,7 @@ namespace Moodle.Server.Services.AuthService
                 response.Success = false;
                 response.Message = ResponseMessages.UserAlreadyExists;
                 response.Data = null;
+                return response;
             }
             CreatePasswordHash(userInfo.Password, out byte[] passwordHash, out byte[] passwordSalt);
             User user = new User
