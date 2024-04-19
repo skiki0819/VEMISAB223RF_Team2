@@ -1,7 +1,8 @@
+// Login.tsx
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import "../styles/Login.css";
+import axios from "axios";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -47,6 +48,10 @@ export const Login = () => {
     }
   };
 
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
+
   return (
     <div className="container">
       <div className="login-form">
@@ -66,7 +71,10 @@ export const Login = () => {
           />
         </div>
         {error && <div className="error-message">{error}</div>}
-        <button onClick={handleLogin}>Login</button>
+        <div className="buttons">
+          <button onClick={handleLogin}>Login</button>
+          <button onClick={handleRegisterClick}>Register</button>
+        </div>
       </div>
     </div>
   );
