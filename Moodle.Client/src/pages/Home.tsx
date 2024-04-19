@@ -41,6 +41,8 @@ export const Home = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        
         const coursesResponse = await axios.get(
           `http://localhost:5191/api/Course`
         );

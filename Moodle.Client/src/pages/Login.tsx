@@ -29,7 +29,9 @@ export const Login = () => {
       );
 
       const userId = response.data.data.id;
+      const token = response.data.data.token;
       localStorage.setItem("userId", userId);
+      localStorage.setItem("token", token);
 
       console.log(response.data);
       navigate("/home", { state: { userId: userId } });
