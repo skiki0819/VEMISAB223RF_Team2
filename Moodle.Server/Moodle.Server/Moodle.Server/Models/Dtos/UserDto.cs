@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
+        public RoleDto Role { get; set; }
         public DegreeDto Degree { get; set; }
         public List<GetCourseDto> Courses { get; set; }
     }

@@ -38,7 +38,12 @@ namespace Moodle.Server.Services.AuthService
                     Id = user.Id,
                     Name = user.Name,
                     Username = user.Username,
-                    Token = CreateToken(user)
+                    Token = CreateToken(user),
+                    Role = new RoleDto
+                    {
+                        Id = user.Role.Id,
+                        Name = user.Role.Name
+                    }
                 };
                 return response;
             }

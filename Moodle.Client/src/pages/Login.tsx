@@ -30,8 +30,10 @@ export const Login = () => {
 
       const userId = response.data.data.id;
       const token = response.data.data.token;
+      const roleId = response.data.data.role.id;
       localStorage.setItem("userId", userId);
       localStorage.setItem("token", token);
+      localStorage.setItem("roleId", roleId);
 
       console.log(response.data);
       navigate("/home", { state: { userId: userId } });
