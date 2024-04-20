@@ -1,3 +1,8 @@
+body {
+    padding-top: 50px;
+    margin: 0;
+}
+
 .Navbar {
     background-color: #333;
     display: flex;
@@ -8,6 +13,10 @@
     margin-right: -8px;
     padding-bottom: 5px;
     border-radius: 0 0 10px 10px;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
 }
 
 .NavLinks,
@@ -35,13 +44,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    position: fixed; /* Fix pozíció */
+    bottom: 0; /* Alul */
+    width: 100%; /* Teljes szélesség */
     z-index: 999;
     padding: 5px 10px;
-    margin-left: -20px;
     color: white;
+    height: 60px;
 }
 
 .FooterLinks,
@@ -57,6 +66,7 @@
     padding: 10px 15px;
     /* Kiss� cs�kkentett�k a paddingot */
     text-decoration: none;
+    
 }
 
 .Footer a:hover {
@@ -108,4 +118,9 @@ button:active {
 
 #filter-select:hover {
     border-color: #b3b3b3;
+}
+
+
+.modalInput {
+    margin-left:2rem;
 }
