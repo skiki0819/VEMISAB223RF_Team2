@@ -4,7 +4,7 @@
     {
         public AuthMapperProfiles()
         {
-            CreateMap<User, LoginResponseDto>();
+            //CreateMap<User, LoginResponseDto>();
         }
 
     }

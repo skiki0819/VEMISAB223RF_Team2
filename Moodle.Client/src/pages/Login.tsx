@@ -1,7 +1,8 @@
+// Login.tsx
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import "../styles/Login.css";
+import axios from "axios";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +29,11 @@ export const Login = () => {
       );
 
       const userId = response.data.data.id;
+      const token = response.data.data.token;
+      const roleId = response.data.data.role.id;
       localStorage.setItem("userId", userId);
+      localStorage.setItem("token", token);
+      localStorage.setItem("roleId", roleId);
 
       console.log(response.data);
       navigate("/home", { state: { userId: userId } });
@@ -45,6 +50,10 @@ export const Login = () => {
         console.error("Hiba történt a bejelentkezés során:", error);
       }
     }
+  };
+
+  const handleRegisterClick = () => {
+    navigate("/register");
   };
 
   return (
@@ -66,7 +75,10 @@ export const Login = () => {
           />
         </div>
         {error && <div className="error-message">{error}</div>}
-        <button onClick={handleLogin}>Login</button>
+        <div className="buttons">
+          <button onClick={handleLogin}>Login</button>
+          <button onClick={handleRegisterClick}>Register</button>
+        </div>
       </div>
     </div>
   );

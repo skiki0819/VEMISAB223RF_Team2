@@ -2,14 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\Moodle.Client",
-    "\\Moodle.Client\\public",
     "\\Moodle.Client\\src",
     "\\Moodle.Client\\src\\components",
-    "\\Moodle.Client\\src\\styles",
-    "\\Moodle.Server",
-    "\\Moodle.Server\\Moodle.Server",
-    "\\Moodle.Server\\Moodle.Server\\Moodle.Server",
-    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Models"
+    "\\Moodle.Client\\src\\pages",
+    "\\Moodle.Client\\src\\styles"
   ],
+  "SelectedNode": "\\Moodle.Client\\src\\styles\\index.css",
   "PreviewInSolutionExplorer": false
 }

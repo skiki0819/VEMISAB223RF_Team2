@@ -41,6 +41,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         const coursesResponse = await axios.get(
           `http://localhost:5191/api/Course`
         );
@@ -65,6 +66,7 @@ export const Home = () => {
 
   const GetUserByCourseId = async (courseId: number) => {
     try {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
       const response = await axios.get(
         `http://localhost:5191/api/User/GetUsersByCourseId/${courseId}`
       );
@@ -87,6 +89,7 @@ export const Home = () => {
     }
 
     try {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
       const response = await axios.post(
         "http://localhost:5191/api/User/AddCourseToUser",
         {
@@ -119,6 +122,7 @@ export const Home = () => {
       setFilteredCourses(filtered);
 
       try {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         const response = await axios.get(
           `http://localhost:5191/api/Course/GetCoursesByDegree/${value}`
         );
@@ -140,6 +144,7 @@ export const Home = () => {
     );
     if (degreeId === 0) {
       try {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
         setErrorMessage("");
         const coursesResponse = await axios.get(
           `http://localhost:5191/api/Course`
@@ -158,6 +163,7 @@ export const Home = () => {
 
   const fetchFilteredCourses = async (degreeId: number) => {
     try {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
       const response = await axios.get(
         `http://localhost:5191/api/Course/GetCoursesByDegree/${degreeId}`
       );

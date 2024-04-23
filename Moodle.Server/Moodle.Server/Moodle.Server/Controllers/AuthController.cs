@@ -23,6 +23,17 @@ namespace Moodle.Server.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost]
+        [Route("Register")]
+        public async Task<ActionResult<RegisterResponseDto>> Register(RegisterRequestDto register)
+        {
+            var result = await _authService.Register(register);
+            if (result.Success is false)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+        }
     }
     
 }

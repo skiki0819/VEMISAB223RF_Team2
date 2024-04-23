@@ -18,13 +18,18 @@
         //Degree messages
         public const string NoCourseFoundForDegree = "No courses have been added to this degree yet.";
         public const string DegreeNotFound = "Degree not found.";
+        public const string NoDegreesFound = "No degrees found.";
 
         //Auth messages
         public const string LoginInformationError = "The username or password is not correct.";
         public const string LoginSuccess = "User successfully logged in.";
+        public const string UserAlreadyExists = "This username is already taken.";
+        public const string UserRegistered = "User successfully registered.";
 
         //Event messages
         public const string EventNotFound = "Event not found.";
+        public const string NoEventFound = "No events found.";
+        public const string EventSuccessfullyCreated = "Event successfully created.";
 
         //Other messages
 
