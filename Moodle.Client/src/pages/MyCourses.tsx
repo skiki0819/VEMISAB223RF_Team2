@@ -54,7 +54,7 @@ export const MyCourses = () => {
             const response = await axios.post('http://localhost:5191/api/Event/CreateEvent', eventInfo);
             if (response.data && response.data.success) {
                 closeModal();
-                console.log('Event created successfully');
+                alert('Event created successfully');
             }
         } catch (error) {
             console.error('Error creating event:', error);
