@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/Login.css";
 import axios from "axios";
+import { sha256 } from "js-sha256";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -20,11 +21,12 @@ export const Login = () => {
 
   const handleLogin = async () => {
     try {
+      const hashedPassword = sha256(password).toString();
       const response = await axios.post(
         "http://localhost:5191/api/Auth/Login",
         {
           username: username,
-          password: password,
+          password: hashedPassword,
         }
       );
 

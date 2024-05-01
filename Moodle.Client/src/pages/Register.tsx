@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Register.css";
+import { sha256 } from "js-sha256";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -17,28 +18,30 @@ const Register = () => {
 
   useEffect(() => {
     // Degree options lekérése az API-ról
-    axios.get("http://localhost:5191/api/Degree/GetAll")
-      .then(response => {
+    axios
+      .get("http://localhost:5191/api/Degree/GetAll")
+      .then((response) => {
         if (response.data.success) {
           setDegreeOptions(response.data.data);
         } else {
           console.error("Diploma adatok lekérése sikertelen");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Hiba történt a diploma adatok lekérésekor:", error);
       });
 
     // RoleId options lekérése az API-ról
-    axios.get("http://localhost:5191/api/Role/GetRoles")
-      .then(response => {
+    axios
+      .get("http://localhost:5191/api/Role/GetRoles")
+      .then((response) => {
         if (response.data.success) {
           setRoleIdOptions(response.data.data);
         } else {
           console.error("Szerep adatok lekérése sikertelen");
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Hiba történt a szerep adatok lekérésekor:", error);
       });
   }, []);
@@ -65,14 +68,15 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
+      const hashedPassword = sha256(password).toString();
       const response = await axios.post(
         "http://localhost:5191/api/Auth/Register",
         {
           username: username,
-          password: password,
+          password: hashedPassword,
           name: name,
           degreeId: selectedDegree,
-          roleId: selectedRoleId
+          roleId: selectedRoleId,
         }
       );
 
@@ -117,8 +121,10 @@ const Register = () => {
           <br />
           <select value={selectedDegree} onChange={handleDegreeChange}>
             <option value="">Select degree</option>
-            {degreeOptions.map(degree => (
-              <option key={degree.id} value={degree.id}>{degree.name}</option>
+            {degreeOptions.map((degree) => (
+              <option key={degree.id} value={degree.id}>
+                {degree.name}
+              </option>
             ))}
           </select>
         </div>
@@ -127,15 +133,17 @@ const Register = () => {
           <br />
           <select value={selectedRoleId} onChange={handleRoleIdChange}>
             <option value="">Select role</option>
-            {roleIdOptions.map(role => (
-              <option key={role.id} value={role.id}>{role.name}</option>
+            {roleIdOptions.map((role) => (
+              <option key={role.id} value={role.id}>
+                {role.name}
+              </option>
             ))}
           </select>
         </div>
         {error && <div className="error-message">{error}</div>}
         <div className="buttons">
-            <button onClick={handleRegister}>Register</button>
-            <button onClick={handleLoginClick}>Login</button>
+          <button onClick={handleRegister}>Register</button>
+          <button onClick={handleLoginClick}>Login</button>
         </div>
       </div>
     </div>
