@@ -17,6 +17,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using Moodle.Server.Services.Init;
+using Moodle.Server.WebSocket;
+using Moodle.Server.WebSocket.Handlers;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -57,6 +60,7 @@ builder.Services.AddScoped<IDegreeService, DegreeService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddWebSocketManager();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
     options => {
@@ -95,6 +99,12 @@ app.UseCors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader());
 
+var serviceScopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+var serviceProvider = serviceScopeFactory.CreateScope().ServiceProvider;
+app.UseWebSockets();
+app.MapWebSocketManager("/api/event/ws", serviceProvider.GetService<EventsHandler>());
+
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
