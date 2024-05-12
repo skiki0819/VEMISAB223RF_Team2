@@ -3,27 +3,32 @@
   "WorkspaceRootPath": "D:\\Github\\VEMISAB223RF_Team2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\styles\\Home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Client\\src\\styles\\Home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\pages\\MyCourses.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Client\\src\\pages\\MyCourses.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\styles\\App.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Client\\src\\styles\\App.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\components\\Footer.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Client\\src\\components\\Footer.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\EventController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\EventController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService\\EventService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService\\EventService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\pages\\Home.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Client\\src\\pages\\Home.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Client\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\CourseInit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\CourseInit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\RoleInit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\RoleInit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\goczi\\Desktop\\6. f\u00E9l\u00E9v\\Rendszerfejleszt\u00E9s\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\CoruseService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -68,70 +73,98 @@
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs",
-              "RelativeDocumentMoniker": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs",
-              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs",
-              "RelativeToolTip": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T14:58:08.958Z",
+              "Title": "Home.css",
+              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\styles\\Home.css",
+              "RelativeDocumentMoniker": "Moodle.Client\\src\\styles\\Home.css",
+              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\styles\\Home.css",
+              "RelativeToolTip": "Moodle.Client\\src\\styles\\Home.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-12T15:07:37.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "App.tsx",
-              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\App.tsx",
-              "RelativeDocumentMoniker": "Moodle.Client\\src\\App.tsx",
-              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\App.tsx",
-              "RelativeToolTip": "Moodle.Client\\src\\App.tsx",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-04-20T14:57:29.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RoleInit.cs",
-              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\RoleInit.cs",
-              "RelativeDocumentMoniker": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\RoleInit.cs",
-              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\RoleInit.cs",
-              "RelativeToolTip": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\RoleInit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T14:50:00.013Z",
+              "Title": "App.css",
+              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\styles\\App.css",
+              "RelativeDocumentMoniker": "Moodle.Client\\src\\styles\\App.css",
+              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\styles\\App.css",
+              "RelativeToolTip": "Moodle.Client\\src\\styles\\App.css",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-12T15:05:11.661Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CourseInit.cs",
-              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\CourseInit.cs",
-              "RelativeDocumentMoniker": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\CourseInit.cs",
-              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\CourseInit.cs",
-              "RelativeToolTip": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\Init\\CourseInit.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-20T14:49:33.128Z",
+              "Title": "Footer.tsx",
+              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\components\\Footer.tsx",
+              "RelativeDocumentMoniker": "Moodle.Client\\src\\components\\Footer.tsx",
+              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\components\\Footer.tsx",
+              "RelativeToolTip": "Moodle.Client\\src\\components\\Footer.tsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-12T15:05:04.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CoruseService.cs",
-              "DocumentMoniker": "C:\\Users\\goczi\\Desktop\\6. f\u00E9l\u00E9v\\Rendszerfejleszt\u00E9s\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\CoruseService.cs",
-              "ToolTip": "C:\\Users\\goczi\\Desktop\\6. f\u00E9l\u00E9v\\Rendszerfejleszt\u00E9s\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\CoruseService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "EventService.cs",
+              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService\\EventService.cs",
+              "RelativeDocumentMoniker": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService\\EventService.cs",
+              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService\\EventService.cs",
+              "RelativeToolTip": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService\\EventService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADUAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T18:49:23.876Z"
+              "WhenOpened": "2024-05-12T14:51:42.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\EventController.cs",
+              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\EventController.cs",
+              "RelativeToolTip": "Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers\\EventController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-12T14:51:08.404Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MyCourses.tsx",
+              "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\pages\\MyCourses.tsx",
+              "RelativeDocumentMoniker": "Moodle.Client\\src\\pages\\MyCourses.tsx",
+              "ToolTip": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\pages\\MyCourses.tsx",
+              "RelativeToolTip": "Moodle.Client\\src\\pages\\MyCourses.tsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-05-12T14:31:09.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Home.tsx",
               "DocumentMoniker": "D:\\Github\\VEMISAB223RF_Team2\\Moodle.Client\\src\\pages\\Home.tsx",
               "RelativeDocumentMoniker": "Moodle.Client\\src\\pages\\Home.tsx",
