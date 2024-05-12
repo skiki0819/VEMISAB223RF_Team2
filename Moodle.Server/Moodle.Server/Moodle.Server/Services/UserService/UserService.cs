@@ -71,15 +71,12 @@ namespace Moodle.Server.Services.UserService
 
             try
             {
-                //I want to get those users which role is "student" of the course with the given id
-
                 var course = await _context.Courses
                     .Include(c => c.Users).ThenInclude(u => u.Degree).Where(c => c.Id == id).Select(c => new Course
                     {
                         Id = c.Id,
                         Users = c.Users.Where(u => u.Role .Name == "Student").ToList()
                     }).FirstOrDefaultAsync();
-                    //.FirstOrDefaultAsync(c => c.Id == id);
 
                 if (course == null)
                 {

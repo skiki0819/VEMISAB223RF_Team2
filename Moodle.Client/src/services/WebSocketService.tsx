@@ -11,7 +11,6 @@ class WebSocketService {
 
     this.ws.onmessage = (event) => {
       const eventData = event.data;
-      // Kezeld az érkező eseményeket, például itt továbbíthatod őket az alkalmazás többi részéhez
       console.log("Kapott üzenet:", eventData);
       alert(eventData);
     };
@@ -32,17 +31,14 @@ class WebSocketService {
     return WebSocketService.instance;
   }
 
-  // Küldj egy új eseményt a szervernek
   public sendMessage(message: string) {
     this.ws.send(message);
   }
 
-  // Regisztrál egy eseménykezelőt
   public addListener(listener: (data: any) => void) {
     this.eventListeners.push(listener);
   }
 
-  // Távolítson el egy eseménykezelőt
   public removeListener(listener: (data: any) => void) {
     const index = this.eventListeners.indexOf(listener);
     if (index !== -1) {

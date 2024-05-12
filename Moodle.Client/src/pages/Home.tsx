@@ -67,16 +67,13 @@ export const Home = () => {
     fetchCourses();
     const wsService = WebSocketService.getInstance();
 
-    // Állíts fel egy eseménykezelőt, hogy értesülj az új eseményekről
     const handleNewEvent = (eventData: any) => {
-      // Itt megjelenítheted a felugró értesítést vagy kezeld az új eseményt másként
       console.log("Új esemény érkezett:", eventData);
     };
 
     wsService.addListener(handleNewEvent);
 
     return () => {
-      // Ne felejtsd el eltávolítani az eseménykezelőt, amikor a komponens megszűnik
       wsService.removeListener(handleNewEvent);
     };
   }, []);

@@ -14,9 +14,9 @@ interface Course {
 }
 
 interface Event {
-    id: number;
-    name: string;
-    description: string;
+  id: number;
+  name: string;
+  description: string;
 }
 
 export const MyCourses = () => {
@@ -27,7 +27,7 @@ export const MyCourses = () => {
   const [eventsModalIsOpen, setEventsModalIsOpen] = useState(false);
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
-  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null); 
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
@@ -98,7 +98,7 @@ export const MyCourses = () => {
     } catch (error) {
       console.error("Error while listing events: ", error);
     }
-    };
+  };
 
   const openModal = (courseId: number) => {
     setSelectedCourseId(courseId);
@@ -108,12 +108,12 @@ export const MyCourses = () => {
   const closeModal = () => {
     setModalIsOpen(false);
     setSelectedCourseId(null);
-    };
+  };
 
-    const closeEventsModal = () => {
-        setEventsModalIsOpen(false); 
-        setSelectedCourseId(null);
-    };
+  const closeEventsModal = () => {
+    setEventsModalIsOpen(false);
+    setSelectedCourseId(null);
+  };
 
   return (
     <div>
@@ -126,15 +126,17 @@ export const MyCourses = () => {
             <div>
               {course.code}, Credits: {course.credit}
             </div>
-                <button onClick={() => GetEventsByCourseId(course.id)}>View Events</button> 
-                {roleId === "2" && (
-                    <button onClick={() => openModal(course.id)}>Create Event</button>
+            <button onClick={() => GetEventsByCourseId(course.id)}>
+              View Events
+            </button>
+            {roleId === "2" && (
+              <button onClick={() => openModal(course.id)}>Create Event</button>
             )}
           </div>
         ))}
       </div>
-      //<Footer />
-
+      //
+      <Footer />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -161,28 +163,23 @@ export const MyCourses = () => {
         <br></br>
         <button onClick={handleCreateEvent}>Create</button>
         <button onClick={closeModal}>Cancel</button>
-          </Modal>
-
-          <Modal
-              isOpen={eventsModalIsOpen} 
-              onRequestClose={closeEventsModal} 
-              contentLabel="Events List Modal"
-          >
-              <h2>Events List</h2>
-              <div>
-                  {events.map((event, index) => (
-                      <div key={index}>
-                          <h3>{event.name}</h3>
-                          <p>{event.description}</p>
-                      </div>
-                  ))}
-              </div>
-              <button onClick={closeEventsModal}>Close</button>
-          </Modal>
-
-
-
-
+      </Modal>
+      <Modal
+        isOpen={eventsModalIsOpen}
+        onRequestClose={closeEventsModal}
+        contentLabel="Events List Modal"
+      >
+        <h2>Events List</h2>
+        <div>
+          {events.map((event, index) => (
+            <div key={index}>
+              <h3>{event.name}</h3>
+              <p>{event.description}</p>
+            </div>
+          ))}
+        </div>
+        <button onClick={closeEventsModal}>Close</button>
+      </Modal>
     </div>
   );
 };
