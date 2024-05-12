@@ -35,9 +35,9 @@ namespace Moodle.Server.Services.EventService
             }
             return response;
         }
-        public async Task<ServiceResponse<List<GetEventDto>>> CreateEvent(CreateEventDto eventInfo)
+        public async Task<ServiceResponse<GetEventDto>> CreateEvent(CreateEventDto eventInfo)
         {
-            var response = new ServiceResponse<List<GetEventDto>>();
+            var response = new ServiceResponse<GetEventDto>();
             try
             {
                 var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == eventInfo.CourseId);
@@ -53,8 +53,33 @@ namespace Moodle.Server.Services.EventService
                 //var dbEvents = await _context.Event
                 //    .Include(c => c.Course)
                 //    .ToListAsync();
-                //response.Data = _mapper.Map<List<GetEventDto>>(dbEvents);
+                response.Data = _mapper.Map<GetEventDto>(newEvent);
                 response.Message = ResponseMessages.EventSuccessfullyCreated;
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<ServiceResponse<List<GetEventDto>>> GetEventsByCourseId(int id)
+        {
+            var response = new ServiceResponse<List<GetEventDto>>();
+            try
+            {
+                var dbEvents = await _context.Courses
+                    .Where(c => c.Id == id)
+                    .SelectMany(c => c.Events)
+                    .ToListAsync();
+                if (dbEvents is null)
+                {
+                    response.Success = false;
+                    response.Message = ResponseMessages.NoEventFound;
+                    return response;
+                }
+                response.Data = dbEvents.Select(e => _mapper.Map<GetEventDto>(e)).ToList();
             }
             catch (Exception ex)
             {
