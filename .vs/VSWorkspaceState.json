@@ -3,10 +3,14 @@
     "",
     "\\Moodle.Client",
     "\\Moodle.Client\\src",
-    "\\Moodle.Client\\src\\components",
     "\\Moodle.Client\\src\\pages",
-    "\\Moodle.Client\\src\\styles"
+    "\\Moodle.Client\\src\\styles",
+    "\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Controllers",
+    "\\Moodle.Server\\Moodle.Server\\Moodle.Server\\Services\\EventService"
   ],
-  "SelectedNode": "\\Moodle.Client\\src\\styles\\index.css",
+  "SelectedNode": "\\Moodle.Client\\src\\styles\\Home.css",
   "PreviewInSolutionExplorer": false
 }

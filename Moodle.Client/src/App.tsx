@@ -1,14 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Login } from './pages/Login';
-import { Home } from "./pages/Home"
-import { MyCourses } from './pages/MyCourses';
-import Register from './pages/Register';
-import "./styles/App.css"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login } from "./pages/Login";
+import { Home } from "./pages/Home";
+import { MyCourses } from "./pages/MyCourses";
+import Register from "./pages/Register";
+import "./styles/App.css";
+import WebSocketService from "./services/WebSocketService";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    WebSocketService.getInstance();
+  }, []);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />

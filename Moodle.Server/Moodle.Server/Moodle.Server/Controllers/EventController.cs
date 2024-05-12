@@ -34,5 +34,16 @@ namespace Moodle.Server.Controllers
             var result = await _eventService.CreateEvent(eventInfo);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetEventsByCourseId/{id}")]
+        public async Task<IActionResult> GetEventsByCourseId(int id)
+        {
+            var result = await _eventService.GetEventsByCourseId(id);
+            if (result.Data is null)
+                return NotFound(result.Message);
+
+            return Ok(result);
+        }
     }
 }

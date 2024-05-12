@@ -72,8 +72,11 @@ namespace Moodle.Server.Services.UserService
             try
             {
                 var course = await _context.Courses
-                    .Include(c => c.Users).ThenInclude(u => u.Degree)
-                    .FirstOrDefaultAsync(c => c.Id == id);
+                    .Include(c => c.Users).ThenInclude(u => u.Degree).Where(c => c.Id == id).Select(c => new Course
+                    {
+                        Id = c.Id,
+                        Users = c.Users.Where(u => u.Role .Name == "Student").ToList()
+                    }).FirstOrDefaultAsync();
 
                 if (course == null)
                 {

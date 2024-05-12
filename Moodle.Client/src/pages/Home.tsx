@@ -6,6 +6,7 @@ import { Footer } from "../components/Footer";
 import "../styles/Home.css";
 import Modal from "react-modal";
 import { Students } from "../components/Students";
+import WebSocketService from "../services/WebSocketService";
 
 Modal.setAppElement("#root");
 
@@ -41,7 +42,9 @@ export const Home = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${localStorage.getItem("token")}`;
         const coursesResponse = await axios.get(
           `http://localhost:5191/api/Course`
         );
@@ -62,11 +65,24 @@ export const Home = () => {
     };
 
     fetchCourses();
+    const wsService = WebSocketService.getInstance();
+
+    const handleNewEvent = (eventData: any) => {
+      console.log("Új esemény érkezett:", eventData);
+    };
+
+    wsService.addListener(handleNewEvent);
+
+    return () => {
+      wsService.removeListener(handleNewEvent);
+    };
   }, []);
 
   const GetUserByCourseId = async (courseId: number) => {
     try {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${localStorage.getItem("token")}`;
       const response = await axios.get(
         `http://localhost:5191/api/User/GetUsersByCourseId/${courseId}`
       );
@@ -89,7 +105,9 @@ export const Home = () => {
     }
 
     try {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${localStorage.getItem("token")}`;
       const response = await axios.post(
         "http://localhost:5191/api/User/AddCourseToUser",
         {
@@ -122,7 +140,9 @@ export const Home = () => {
       setFilteredCourses(filtered);
 
       try {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${localStorage.getItem("token")}`;
         const response = await axios.get(
           `http://localhost:5191/api/Course/GetCoursesByDegree/${value}`
         );
@@ -144,7 +164,9 @@ export const Home = () => {
     );
     if (degreeId === 0) {
       try {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${localStorage.getItem("token")}`;
         setErrorMessage("");
         const coursesResponse = await axios.get(
           `http://localhost:5191/api/Course`
@@ -163,7 +185,9 @@ export const Home = () => {
 
   const fetchFilteredCourses = async (degreeId: number) => {
     try {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${localStorage.getItem("token")}`;
       const response = await axios.get(
         `http://localhost:5191/api/Course/GetCoursesByDegree/${degreeId}`
       );
@@ -185,12 +209,10 @@ export const Home = () => {
       <Navbar />
       <h2>Courses</h2>
       <div id="filterDiv">
-
-
         <div className="degree-filter-select">
-            <label htmlFor="filter-select" style={{ fontWeight: "bold" }}>
-             Filter by Degree 
-             </label>
+          <label htmlFor="filter-select" style={{ fontWeight: "bold" }}>
+            Filter by Degree
+          </label>
           <select
             id="filter-select"
             onChange={handleFilterChange}
